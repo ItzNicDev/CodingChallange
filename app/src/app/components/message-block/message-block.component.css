@@ -1,4 +1,9 @@
+
+
 .text-block {
+  transition: 0.3s;
+  position: relative;
+  top: 60px;
   display: inline-block;
   margin-right: 10px;
   background-color: #e7e7e7;
@@ -8,6 +13,12 @@
   box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
 }
 
+.text-block:hover{
+  transition: 0.3s;
+  height: 105px;
+  width: 205px;
+}
+
 .text {
   background: none;
   border: none;
@@ -15,4 +26,42 @@
   min-width: 190px;
   max-height: 90px;
   max-width: 190px;
+}
+
+
+.interline {
+  transition: 0.3s;
+  display: inline-block;
+  position: relative;
+  top: 70px;
+  height: 100px;
+  width: 5px;
+  border-radius: 5px;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+
+.interline:hover {
+  transition: 0.3s;
+  background-color: #4673f1;
+  width: 5px;
+}
+
+
+.deleteButton {
+  position: absolute;
+margin-bottom: 40px;
+  background-color: gray;
+  border: 2px solid #3a3a3a;
+  border-radius: 10px;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #969696;
+}
+
+.deleteButton:active {
+  background-color: #8d8d8d;
 }
