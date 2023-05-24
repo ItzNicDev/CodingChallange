@@ -13,7 +13,8 @@ public counter: number[] = [0];
     console.log(this.counter)
   }
   deleteBoxes() {
-    this.counter = [0];
+    location.reload();
+    // this.counter = [0];
 
   }
 
@@ -30,6 +31,5 @@ public counter: number[] = [0];
   ngOnInit() {
     this.checkIfMobile()
   }
-
 
 }

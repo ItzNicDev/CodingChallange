@@ -13,6 +13,22 @@
   box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
 }
 
+.text-block-mobile {
+  display: flex;
+  transition: 0.3s;
+  position: relative;
+  top: 60px;
+  background-color: #e7e7e7;
+  height: 100px;
+  width: 90%;
+  border-radius: 10px;
+  justify-content: center;
+  box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+
 .text-block:hover{
   transition: 0.3s;
   height: 105px;
@@ -29,6 +45,12 @@
 }
 
 
+.text-mobile {
+  background: none;
+  border:none;
+  width: 100%;
+}
+
 .interline {
   transition: 0.3s;
   display: inline-block;
@@ -42,6 +64,24 @@
 }
 
 
+.interline-mobile {
+  transition: 0.3s;
+  display: flex;
+  position: relative;
+  height: 5px;
+  width: 90%;
+  border-radius: 5px;
+  /*margin-top: 70px;*/
+  top: 70px;
+  background-color: rgba(180, 180, 180, 0.48);
+}
+
+.interline-mobile:hover {
+  background-color: royalblue;
+}
+
+
+
 .interline:hover {
   transition: 0.3s;
   background-color: #4673f1;
@@ -51,7 +91,7 @@
 
 .deleteButton {
   position: absolute;
-margin-bottom: 40px;
+/*margin-bottom: 10px;*/
   background-color: gray;
   border: 2px solid #3a3a3a;
   border-radius: 10px;
@@ -65,3 +105,7 @@ margin-bottom: 40px;
 .deleteButton:active {
   background-color: #8d8d8d;
 }
+
+
+
+
