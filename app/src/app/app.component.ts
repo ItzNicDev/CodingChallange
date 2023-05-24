@@ -1,16 +1,23 @@
-import {Component, Input} from '@angular/core';
-import { InterlineComponent} from "./components/interline/interline.component";
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
 
+  title = 'Coding Challenge';
 
-
-
-  title = 'app';
-  public counter: number[] = [1, 3];
+  // public isOnMobile: boolean = false;
+  //
+  //
+  //   checkIfMobile() {
+  //     let regexp = /android|iphone|kindle|ipad/i;
+  //     this.isOnMobile = regexp.test(navigator.userAgent);
+  //     console.log("user agent: " + this.isOnMobile);
+  //   }
+  //   ngOnInit() {
+  //     this.checkIfMobile()
+  //   }
 }
