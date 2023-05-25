@@ -21,9 +21,17 @@ public counter: number = 1;
 
 
   addBox() {
+    var currentdate = new Date();
+    var datetime = currentdate.getDate() + "."
+      + (currentdate.getMonth()+1)  + "."
+      + currentdate.getFullYear() + " | "
+      + currentdate.getHours() + ":"
+      + currentdate.getMinutes()
+
     this.counter = this.counter + 1;
     this.list.push(this.counter)
     console.log(this.list)
+  console.log(datetime)
   }
   deleteBoxes() {
     location.reload();
