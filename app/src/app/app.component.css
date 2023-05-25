@@ -1,3 +1,8 @@
+html {
+  background-color: #4673f1;
+}
+
+
 hr {
   margin-left: 10px;
   margin-right: 10px;
@@ -6,3 +11,6 @@ hr {
 message-block {
   margin-left: 10px;
 }
+
+
+

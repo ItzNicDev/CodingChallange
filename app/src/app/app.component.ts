@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {animate, style, transition, trigger} from "@angular/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @Component({
   selector: 'app-root',
@@ -20,4 +23,5 @@ export class AppComponent{
   //   ngOnInit() {
   //     this.checkIfMobile()
   //   }
+  protected readonly location = location;
 }

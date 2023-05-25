@@ -1,28 +1,36 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {animate, style, transition, trigger} from "@angular/animations";
+
 
 @Component({
   selector: 'message-block',
   templateUrl: './message-block.component.html',
-  styleUrls: ['./message-block.component.css']
+  styleUrls: ['./message-block.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(300, style({opacity: 1}))
+      ])
+    ])
+  ]
 })
 export class MessageBlockComponent implements OnInit {
-public counter: number[] = [0];
+public list: number[] = [1];
+public counter: number = 1;
+
 
   addBox() {
-    this.counter.push(0)
-    console.log(this.counter)
+    this.counter = this.counter + 1;
+    this.list.push(this.counter)
+    console.log(this.list)
   }
   deleteBoxes() {
     location.reload();
     // this.counter = [0];
-
   }
 
-
-
   public isOnMobile: boolean = false;
-
-
   checkIfMobile() {
     let regexp = /android|iphone|kindle|ipad/i;
     this.isOnMobile = regexp.test(navigator.userAgent);
@@ -31,5 +39,4 @@ public counter: number[] = [0];
   ngOnInit() {
     this.checkIfMobile()
   }
-
 }

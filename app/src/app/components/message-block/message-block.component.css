@@ -1,5 +1,9 @@
 
 
+
+
+
+
 .text-block {
   transition: 0.3s;
   position: relative;
@@ -12,22 +16,6 @@
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
 }
-
-.text-block-mobile {
-  display: flex;
-  transition: 0.3s;
-  position: relative;
-  top: 60px;
-  background-color: #e7e7e7;
-  height: 100px;
-  width: 90%;
-  border-radius: 10px;
-  justify-content: center;
-  box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
-  margin-bottom: 5px;
-  margin-top: 20px;
-}
-
 
 .text-block:hover{
   transition: 0.3s;
@@ -63,25 +51,6 @@
   margin-right: 10px;
 }
 
-
-.interline-mobile {
-  transition: 0.3s;
-  display: flex;
-  position: relative;
-  height: 5px;
-  width: 90%;
-  border-radius: 5px;
-  /*margin-top: 70px;*/
-  top: 70px;
-  background-color: rgba(180, 180, 180, 0.48);
-}
-
-.interline-mobile:hover {
-  background-color: royalblue;
-}
-
-
-
 .interline:hover {
   transition: 0.3s;
   background-color: #4673f1;
@@ -89,23 +58,94 @@
 }
 
 
-.deleteButton {
-  position: absolute;
-/*margin-bottom: 10px;*/
-  background-color: gray;
-  border: 2px solid #3a3a3a;
-  border-radius: 10px;
-  color: white;
+
+/*rules for mobile*/
+.center-only-for-mobile {
+/*margin-left: 20px;*/
 }
 
-.deleteButton:hover {
-  background-color: #969696;
-}
 
-.deleteButton:active {
-  background-color: #8d8d8d;
-}
 
+@media only screen and (max-width: 600px) {
+
+
+  .center-only-for-mobile {
+    margin-left: 3%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .interline:hover {
+    transition: 0.3s;
+    display: flex;
+    position: relative;
+    height: 5px;
+    width: 90%;
+    border-radius: 5px;
+    top: 20px;
+    background-color: royalblue;
+  }
+
+  .interline {
+
+    transition: 0.3s;
+    display: flex;
+    position: relative;
+    height: 5px;
+    width: 90%;
+    border-radius: 5px;
+    justify-content: center;
+    /*margin-top: 70px;*/
+    margin-left: 5%;
+    top: 20px;
+    background-color: rgba(180, 180, 180, 0.48);
+  }
+
+
+  .text-block {
+    margin-left: 5%;
+
+    display: flex;
+    transition: 0.3s;
+    position: relative;
+    top: 10px;
+    background-color: #4ec9b1;
+    height: 100px;
+    width: 90%;
+    border-radius: 10px;
+    /*justify-content: center;*/
+    box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+
+  .text-block:hover{
+    display: flex;
+    transition: 0.3s;
+    position: relative;
+    top: 10px;
+    background-color: #4ec9b1;
+    height: 100px;
+    width: 90%;
+    border-radius: 10px;
+    /*justify-content: center;*/
+    box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  .text {
+    background: none;
+    border:none;
+    min-width: 97%;
+    margin-top: 5px;
+    margin-left: 5px;
+
+  }
+
+}
 
 
 
