@@ -32,15 +32,27 @@
 
     <div class="opened-menu">
 
-      <input class="checkbox" type="checkbox">
-      <p class="option">option_1</p>
-      <br>
-      <input class="checkbox" type="checkbox">
-      <p class="option">option_2</p>
+
+      <label style="margin-left: 17px">Settings</label>
+
+
+      <div style="display: flex; justify-content: center; ">
+        <div style="height: 4px; width: 90%; background-color: #525252; border-radius: 4px"></div>
+
+      </div>
+
+
+      <select  name="cars" id="settings" style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
+        <option  disabled selected>Color Theme</option>
+        <option value="select_1" onclick="alert('ocean')">ocean</option>
+        <option value="select_2">candy</option>
+      </select>
       <br>
 
-      <input class="checkbox" type="checkbox">
-      <p class="option">option_3</p>
+<!--      <input class="checkbox" type="checkbox">-->
+<!--      <p class="option">option</p>-->
+
+      <button class="menu-button">login</button>
 
     </div>
   </div>

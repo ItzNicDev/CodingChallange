@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {animate, style, transition, trigger} from "@angular/animations";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 
 @Component({
@@ -8,10 +8,10 @@ import {animate, style, transition, trigger} from "@angular/animations";
   styleUrls: ['./message-block.component.css'],
   animations: [
     trigger('fade', [
-      transition('void => *', [
-        style({ opacity: 0 }),
-        animate(300, style({opacity: 1}))
-      ])
+      state('void', style({ transform: 'translateY(-100%)', opacity: 0 })),
+      state('*', style({ transform: 'translateY(0)', opacity: 1 })),
+      transition(':enter', animate('200ms ease-out')),
+      transition(':leave', animate('200ms ease-in'))
     ])
   ]
 })
