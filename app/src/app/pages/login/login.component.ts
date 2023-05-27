@@ -1,9 +1,15 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  animations: [trigger('slide', [
+    state('void', style({transform: 'translateX(-100%)', opacity: 0})),
+    state('*', style({transform: 'translateX(0)', opacity: 1})),
+    transition(':enter', animate('250ms ease-out')),
+  ]),],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {

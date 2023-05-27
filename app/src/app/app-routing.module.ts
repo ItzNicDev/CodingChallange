@@ -6,7 +6,7 @@ import {MessageBlockComponent} from "./components/message-block/message-block.co
 import {HomeComponent} from "./pages/home/home.component";
 import {LoginComponent} from "./pages/login/login.component";
 
-const routes: Routes = [{path: 'home', component: HomeComponent}, { path: 'login', component: LoginComponent}];
+const routes: Routes = [{path: 'home', component: HomeComponent}, { path: '', component: LoginComponent} , { path: 'login', component: LoginComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

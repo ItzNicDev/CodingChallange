@@ -10,7 +10,7 @@
 
     <div class="center">
       <input #username class="username-input" placeholder="Username" type="text">
-      <label *ngIf="!isUsernameValid" style="color: #ffffff; position: absolute; top: 145px; margin-left: 220px; font-size: 10px">enter username</label>
+      <label @slide *ngIf="!isUsernameValid" class="missing-username">enter username</label>
 
     </div>
 
@@ -18,7 +18,7 @@
     <div class="center">
 
       <input #password class="password-input" placeholder="Password" type="password">
-      <label *ngIf="!isPasswordValid" style="color: #ffffff; position: absolute; top: 208px; margin-left: 220px; font-size: 10px">enter password</label>
+      <label @slide *ngIf="!isPasswordValid" class="missing-password" style="">enter password</label>
 
     </div>
 
