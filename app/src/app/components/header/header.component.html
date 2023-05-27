@@ -42,10 +42,13 @@
       </div>
 
 
-      <select  name="cars" id="settings" style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
-        <option  disabled selected>Color Theme</option>
-        <option value="select_1" onclick="alert('ocean')">ocean</option>
-        <option value="select_2">candy</option>
+      <select #selection (change)="colorPicker(selection.value);" name="color_themes" id="settings" style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
+<!--        <option disabled selected>Color Theme</option>-->
+        <option value="ocean">Ocean</option>
+        <option value="candy">Candy</option>
+        <option value="moonlight">Moonlight</option>
+        <option value="skyline">Skyline</option>
+        <option value="midnight">Midnight</option>
       </select>
       <br>
 

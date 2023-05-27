@@ -80,7 +80,7 @@
     transition: 0.3s;
     display: flex;
     position: relative;
-    height: 5px;
+    height: 6px;
     width: 90%;
     border-radius: 5px;
     top: 20px;
@@ -92,7 +92,7 @@
     transition: 0.3s;
     display: flex;
     position: relative;
-    height: 5px;
+    height: 6px;
     width: 90%;
     border-radius: 5px;
     justify-content: center;

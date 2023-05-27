@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {DataService} from "../../services/data.service";
+import {MessageBlockComponent} from "../message-block/message-block.component";
 
 @Component({
   selector: 'app-header',
@@ -7,42 +9,40 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   styleUrls: ['./header.component.css'],
   animations: [
     trigger('fade', [
-      state('void', style({ transform: 'translateY(-100%)', opacity: 0 })),
-      state('*', style({ transform: 'translateY(0)', opacity: 1 })),
+      state('void', style({transform: 'translateY(-100%)', opacity: 0})),
+      state('*', style({transform: 'translateY(0)', opacity: 1})),
       transition(':enter', animate('400ms ease-out')),
       transition(':leave', animate('400ms ease-in'))
     ])
-
-
-
   ]
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent {
 
-    protected readonly location = location;
-    public isMenuOpened: boolean = false;
+  protected readonly location = location;
+  public isMenuOpened: boolean = true;
+  public colorTheme: string = "";
 
-    ngOnInit() {
+  constructor(private dataService: DataService) {
+  }
 
-    }
+  colorPicker(colorValue: string) {
+    this.colorTheme = colorValue
+    console.log("selected Color Theme: " + this.colorTheme)
+    // this.dataService.setVariable(this.colorTheme);
+    this.dataService.setVariable(colorValue);
+  }
 
   menubar() {
-    // console.log("no menu function yet!")
     this.isMenuOpened = !this.isMenuOpened;
-    console.log(this.isMenuOpened)
-
   }
 
   deleteAll() {
-
-
     const response = confirm("Delete All Notes?");
-
     console.log("answer: " + response);
-
-    if(response == true) {
+    if (response == true) {
       location.reload()
     }
-
   }
 }
+
+

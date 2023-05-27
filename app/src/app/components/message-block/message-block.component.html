@@ -20,12 +20,20 @@
 
 <br>
 
+<!--<button (click)="getValue();">debug</button>-->
+
 <ng-container *ngFor="let index of list" style="margin-left: 10px">
 
   <div @fade class="text-block">
-    <textarea class="text"></textarea>
+    <textarea class="text" id="text-block"></textarea>
   </div>
 
 
   <div @fade class="interline" (click)="addBox()"></div>
 </ng-container>
+
+
+<br>
+
+<button onclick="alert(this.myVariable)">get value</button>
+<!--<p style="color: white">{{this.myVariable}}</p>-->
