@@ -19,7 +19,7 @@ import {MessageBlockComponent} from "../message-block/message-block.component";
 export class HeaderComponent {
 
   protected readonly location = location;
-  public isMenuOpened: boolean = true;
+  public isMenuOpened: boolean = false;
   public colorTheme: string = "";
 
   constructor(private dataService: DataService) {

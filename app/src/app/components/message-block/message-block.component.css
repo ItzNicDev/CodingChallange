@@ -1,10 +1,6 @@
 
-
-
-
-
-
 .text-block {
+  /*margin-left: 10px;*/
   transition: 0.3s;
   position: relative;
   top: 60px;
@@ -17,7 +13,7 @@
   box-shadow: 2px 2px 5px rgba(14, 0, 0, 0.2);
 }
 
-.text-block:hover{
+.text-block:hover {
   transition: 0.3s;
   height: 105px;
   width: 205px;
@@ -35,7 +31,7 @@
 
 .text-mobile {
   background: none;
-  border:none;
+  border: none;
   width: 100%;
 }
 
@@ -58,16 +54,31 @@
 }
 
 
-
 /*rules for mobile*/
 .center-only-for-mobile {
-/*margin-left: 20px;*/
+  /*margin-left: 20px;*/
 }
 
+
+.break-line {
+  height: 2px;
+  width: 95%;
+  background-color: #939393;
+  display: flex;
+  justify-content: center
+}
 
 
 @media only screen and (max-width: 600px) {
 
+
+  .break-line {
+    height: 0px;
+    width: 0%;
+    background-color: #939393;
+    display: flex;
+    justify-content: center
+  }
 
   .center-only-for-mobile {
     margin-left: 3%;
@@ -121,7 +132,7 @@
   }
 
 
-  .text-block:hover{
+  .text-block:hover {
     display: flex;
     transition: 0.3s;
     position: relative;
@@ -138,7 +149,7 @@
 
   .text {
     background: none;
-    border:none;
+    border: none;
     min-width: 97%;
     margin-top: 5px;
     margin-left: 5px;

@@ -1,0 +1,32 @@
+<div class="only-for-desktop" style="display: flex; justify-content: center">
+
+
+  <div class="login-screen">
+    <div class="center">
+      <label class="headline">Login</label>
+
+    </div>
+
+
+    <div class="center">
+      <input #username class="username-input" placeholder="Username" type="text">
+      <label *ngIf="!isUsernameValid" style="color: #ffffff; position: absolute; top: 145px; margin-left: 220px; font-size: 10px">enter username</label>
+
+    </div>
+
+
+    <div class="center">
+
+      <input #password class="password-input" placeholder="Password" type="password">
+      <label *ngIf="!isPasswordValid" style="color: #ffffff; position: absolute; top: 208px; margin-left: 220px; font-size: 10px">enter password</label>
+
+    </div>
+
+    <div class="center">
+
+      <button class="login-button" (click)="login(username.value, password.value);">Login</button>
+    </div>
+
+  </div>
+
+</div>

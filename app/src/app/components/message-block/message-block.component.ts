@@ -9,13 +9,24 @@ import {Subscription} from "rxjs";
   templateUrl: './message-block.component.html',
   styleUrls: ['./message-block.component.css'],
   animations: [
-    trigger('fade', [
+    trigger('slide', [
+      state('void', style({transform: 'translateX(-100%)', opacity: 0})),
+      state('*', style({transform: 'translateX(0)', opacity: 1})),
+      transition(':enter', animate('250ms ease-out')),
+    ]),
+
+    trigger('drop', [
       state('void', style({transform: 'translateY(-100%)', opacity: 0})),
       state('*', style({transform: 'translateY(0)', opacity: 1})),
-      transition(':enter', animate('200ms ease-out')),
-      transition(':leave', animate('200ms ease-in'))
+      transition(':enter', animate('250ms ease-out')),
+      transition(':leave', animate('400ms ease-in'))
     ])
+
   ]
+
+
+
+
 })
 export class MessageBlockComponent implements OnInit, OnDestroy {
 

@@ -1,5 +1,3 @@
-
-
 <!--  <ng-container *ngFor="let index of list">-->
 <!--    <div>-->
 
@@ -21,19 +19,33 @@
 <br>
 
 <!--<button (click)="getValue();">debug</button>-->
+<div style="display: flex; justify-content: center">
+  <div class="break-line" style="">
 
-<ng-container *ngFor="let index of list" style="margin-left: 10px">
+  </div>
 
-  <div @fade class="text-block">
+
+</div>
+
+
+
+<div style="display: inline-block; width: 20px"></div>
+
+<ng-container *ngFor="let index of list" style="">
+
+
+
+
+  <div @drop class="text-block">
     <textarea class="text" id="text-block"></textarea>
   </div>
 
 
-  <div @fade class="interline" (click)="addBox()"></div>
+  <div @slide class="interline" (click)="addBox()"></div>
 </ng-container>
 
 
 <br>
 
-<button onclick="alert(this.myVariable)">get value</button>
+<!--<button onclick="alert(this.myVariableSubscription)">get value</button>-->
 <!--<p style="color: white">{{this.myVariable}}</p>-->

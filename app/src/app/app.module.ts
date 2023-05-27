@@ -7,12 +7,16 @@ import {MessageBlockComponent} from './components/message-block/message-block.co
 import {HeaderComponent} from './components/header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataService} from "./services/data.service";
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageBlockComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [DataService],
