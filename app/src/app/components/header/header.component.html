@@ -34,16 +34,14 @@
 
 
       <label style="margin-left: 17px">Settings</label>
-
-
       <div style="display: flex; justify-content: center; ">
         <div style="height: 4px; width: 90%; background-color: #525252; border-radius: 4px"></div>
-
       </div>
 
 
-      <select #selection (change)="colorPicker(selection.value);" name="color_themes" id="settings" style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
-<!--        <option disabled selected>Color Theme</option>-->
+      <select #selection (change)="colorPicker(selection.value);" name="color_themes" id="settings"
+              style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
+        <option disabled selected>Color Theme</option>
         <option value="ocean">Ocean</option>
         <option value="candy">Candy</option>
         <option value="moonlight">Moonlight</option>
@@ -52,10 +50,13 @@
       </select>
       <br>
 
-<!--      <input class="checkbox" type="checkbox">-->
-<!--      <p class="option">option</p>-->
+      <select #selection (change)="colorPicker(selection.value);" name="color_themes" id="settings"
+              style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
+        <option disabled selected>Appearance</option>
+        <option value="ocean">Dark-Mode</option>
+        <option value="candy">Bright-Mode</option>
+      </select>
 
-      <button class="menu-button">login</button>
 
     </div>
   </div>

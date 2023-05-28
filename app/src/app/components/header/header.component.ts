@@ -27,9 +27,10 @@ export class HeaderComponent {
 
   colorPicker(colorValue: string) {
     this.colorTheme = colorValue
-    console.log("selected Color Theme: " + this.colorTheme)
-    // this.dataService.setVariable(this.colorTheme);
-    this.dataService.setVariable(colorValue);
+    console.log("selected Color Theme: " + this.colorTheme);
+    localStorage.setItem("colorTheme", colorValue)
+    location.reload();
+
   }
 
   menubar() {
@@ -40,6 +41,7 @@ export class HeaderComponent {
     const response = confirm("Delete All Notes?");
     console.log("answer: " + response);
     if (response == true) {
+      localStorage.setItem("message-block-key", JSON.stringify(["box"]));
       location.reload()
     }
   }

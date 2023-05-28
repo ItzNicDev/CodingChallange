@@ -1,45 +1,24 @@
-<!--  <ng-container *ngFor="let index of list">-->
-<!--    <div>-->
-
-<!--      <div class="center-only-for-mobile">-->
-<!--      <div class="text-block">-->
-<!--        <textarea class="text"></textarea>-->
-<!--      </div>-->
-<!--      </div>-->
-
-
-<!--      <div class="center-only-for-mobile">-->
-<!--        <div class="interline" (click)="addBox()"></div>-->
-<!--      </div>-->
-
-<!--    </div>-->
-
-<!--  </ng-container>-->
-
-<br>
-
-<!--<button (click)="getValue();">debug</button>-->
 <div style="display: flex; justify-content: center">
   <div class="break-line" style="">
-
   </div>
-
-
 </div>
-
 
 
 <div style="display: inline-block; width: 20px"></div>
 
 <ng-container *ngFor="let index of list" style="">
 
+  <ng-container *ngIf="maxHeight">
+    <div @drop id="test1" class="text-block" #testDiv>
+      <textarea class="text" id="text-block"></textarea>
+    </div>
+  </ng-container>
 
-
-
-  <div @drop class="text-block">
-    <textarea class="text" id="text-block"></textarea>
-  </div>
-
+  <ng-container *ngIf="!maxHeight">
+    <div @slide id="test" class="text-block" #testDiv>
+      <textarea class="text" id="text-blockk"></textarea>
+    </div>
+  </ng-container>
 
   <div @slide class="interline" (click)="addBox()"></div>
 </ng-container>
@@ -47,5 +26,5 @@
 
 <br>
 
-<!--<button onclick="alert(this.myVariableSubscription)">get value</button>-->
-<!--<p style="color: white">{{this.myVariable}}</p>-->
+
+<!--<p style="color: white">{{colorTheme}}</p>-->

@@ -1,8 +1,19 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit, QueryList,
+  SimpleChanges,
+  ViewChild, ViewChildren
+} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {HeaderComponent} from "../header/header.component";
 import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
+import {parseJson} from "@angular/cli/src/utilities/json-file";
 
 @Component({
   selector: 'message-block',
@@ -25,23 +36,26 @@ import {Subscription} from "rxjs";
   ]
 
 
-
-
 })
-export class MessageBlockComponent implements OnInit, OnDestroy {
+export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @ViewChildren('testDiv') testDivs!: QueryList<ElementRef>;
 
 
-
-  public list: number[] = [1];
+  public list: string[] = ["box"];
   public textList: string[] = [];
   public counter: number = 1;
-  public myVariable: string ="";
+  public myVariable: string = "";
   private myVariableSubscription: Subscription;
-public x: string ="";
+  public colorTheme: string = "";
+  public x: string = "";
+
   constructor(private dataService: DataService) {
     this.myVariableSubscription = this.dataService.getVariable().subscribe((value: string) => {
       this.myVariable = value;
     });
+
+    this.colorTheme = localStorage.getItem("colorTheme") || '{}';
 
   }
 
@@ -51,6 +65,8 @@ public x: string ="";
 
 
   addBox() {
+    this.changeDivBackground();
+
     var currentdate = new Date();
     var datetime = currentdate.getDate() + "."
       + (currentdate.getMonth() + 1) + "."
@@ -63,15 +79,14 @@ public x: string ="";
 
 
     this.counter = this.counter + 1;
-    this.list.push(this.counter);
+    this.list.push("box");
 
-    // if (typeof textFromTextArea === "string") {
-    //   this.textList.push(textFromTextArea);
-    // }
-    // console.log(this.textList)
+    if (typeof textFromTextArea === "string") {
+      this.textList.push(textFromTextArea);
+    }
 
     console.log(this.list)
-    // console.log(datetime)
+    localStorage.setItem("message-block-key", JSON.stringify(this.list));
   }
 
   deleteBoxes() {
@@ -80,6 +95,7 @@ public x: string ="";
   }
 
   public isOnMobile: boolean = false;
+  public maxHeight: boolean = false;
 
   checkIfMobile() {
     let regexp = /android|iphone|kindle|ipad/i;
@@ -88,10 +104,46 @@ public x: string ="";
   }
 
   ngOnInit() {
-    this.checkIfMobile();
 
+    this.list = JSON.parse(localStorage.getItem("message-block-key") || '{}');
+
+
+    this.checkIfMobile();
+    if (window.innerWidth <= 600) {
+      this.maxHeight = true;
+    } else {
+      this.maxHeight = false;
+    }
   }
 
+
+  ngAfterViewInit() {
+    this.changeDivBackground();
+  }
+
+  changeDivBackground() {
+
+    let colorTheme = localStorage.getItem("colorTheme")
+    console.log(colorTheme)
+
+    let colorAlias = "white"
+    if (colorTheme == "ocean") {
+      colorAlias = "cyan"
+    }if (colorTheme == "candy") {
+      colorAlias = "pink"
+    }if (colorTheme == "moonlight") {
+      colorAlias = "lightyellow"}
+    if (colorTheme == "skyline") {
+      colorAlias = "royalblue"
+    }if (colorTheme == "midnight") {
+      colorAlias = "darkblue"
+    }
+
+    this.testDivs.forEach(div => {
+      div.nativeElement.style.backgroundColor = colorAlias;
+    });
+
+  }
 
 }
 
