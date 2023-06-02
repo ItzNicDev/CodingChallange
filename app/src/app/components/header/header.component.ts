@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {DataService} from "../../services/data.service";
 import {MessageBlockComponent} from "../message-block/message-block.component";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-header',
+  selector: 'header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   animations: [
@@ -16,13 +17,22 @@ import {MessageBlockComponent} from "../message-block/message-block.component";
     ])
   ]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   protected readonly location = location;
   public isMenuOpened: boolean = false;
   public colorTheme: string = "";
+  private notesAmount: string | null = "";
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private router: Router) {
+  }
+
+  logout() {
+    this.dataService.deleteCookie("user");
+    this.router.navigate(["login"]);
+  }
+
+  ngOnInit() {
   }
 
   colorPicker(colorValue: string) {
@@ -30,7 +40,15 @@ export class HeaderComponent {
     console.log("selected Color Theme: " + this.colorTheme);
     localStorage.setItem("colorTheme", colorValue)
     location.reload();
+  }
 
+  appearanceSelection(value: string) {
+    localStorage.setItem("appearance", value)
+  }
+
+  fontSize(value: string) {
+    localStorage.setItem("font-size", value);
+    location.reload()
   }
 
   menubar() {
@@ -38,13 +56,19 @@ export class HeaderComponent {
   }
 
   deleteAll() {
-    const response = confirm("Delete All Notes?");
+    this.notesAmount = localStorage.getItem("boxes-amount");
+
+    let response: boolean = confirm("Delete All " + this.notesAmount + " Notes?");
     console.log("answer: " + response);
     if (response == true) {
       localStorage.setItem("message-block-key", JSON.stringify(["box"]));
+      localStorage.setItem("boxes-amount", "1");
       location.reload()
     }
   }
+
+  reportError() {
+    this.router.navigate(["report"]);
+  }
+
 }
-
-

@@ -99,9 +99,9 @@
 
 .opened-menu {
   transition: 1s;
-
+backdrop-filter: blur(10px);
   width: 90%;
-  height: 100px;
+  height: 220px;
   border-radius: 10px;
   background-color: #5d5d5d;
 
@@ -126,4 +126,52 @@
   border: 1px solid #676767;
   border-radius: 10px;
   height: 25px
+}
+
+
+.report-button {
+  transition: 0.3s;
+  background-color: #969696;
+  border: 1px solid #868686;
+  border-radius: 20px;
+  height: 23px;
+  display: flex;
+
+  justify-items: center;
+  align-items: center;
+  margin-left: 16px;
+  margin-top: 10px;
+}
+
+.report-button:hover {
+  transition: 0.3s;
+  background-color: royalblue;
+  color: white;
+  border: 2px solid #00172a;
+
+}
+
+.logout-button {
+  transition: 0.3s;
+
+  background-color: #969696;
+  border: 2px solid #868686;
+  border-radius: 20px;
+  height: 23px;
+  display: flex;
+
+  justify-items: center;
+  align-items: center;
+  margin-left: 16px;
+  margin-top: 10px;
+}
+
+
+.logout-button:hover {
+  transition: 0.3s;
+  background-color: #b44848;
+  border: 2px solid #540000;
+
+  /*color: white;*/
+
 }

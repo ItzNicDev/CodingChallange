@@ -1,7 +1,12 @@
-<div class="only-for-desktop" style="display: flex; justify-content: center">
+<div @drop class="only-for-desktop" style="display: flex; justify-content: center">
 
 
-  <div class="login-screen">
+  <div (keydown)="handleKey($event,username.value,password.value)" class="login-screen">
+<!--    <div class="center">-->
+<!--      <p class="AppName">NoteStack</p>-->
+
+<!--    </div>-->
+
     <div class="center">
       <label class="headline">Login</label>
 
@@ -26,6 +31,13 @@
 
       <button class="login-button" (click)="login(username.value, password.value);">Login</button>
     </div>
+
+
+    <div class="center" style="margin-top: 10px">
+      <label style="color: white; font-size: 10px">keep me logged in</label>
+      <input style="margin-left: 5px" type="checkbox" (change)="keepLoggedin()">
+    </div>
+
 
   </div>
 

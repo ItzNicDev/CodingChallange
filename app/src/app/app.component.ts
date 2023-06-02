@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from "@angular/animations";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -8,9 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
 
   title = 'Coding Challenge';
+
+  // ngAfterViewInit() {
+  //   document.getElementsByTagName()
+  // }
 
   // public isOnMobile: boolean = false;
   //

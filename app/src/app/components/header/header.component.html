@@ -32,7 +32,6 @@
 
     <div class="opened-menu">
 
-
       <label style="margin-left: 17px">Settings</label>
       <div style="display: flex; justify-content: center; ">
         <div style="height: 4px; width: 90%; background-color: #525252; border-radius: 4px"></div>
@@ -50,12 +49,31 @@
       </select>
       <br>
 
-      <select #selection (change)="colorPicker(selection.value);" name="color_themes" id="settings"
+      <select #appearance (change)="appearanceSelection(appearance.value);" name="appearance"
               style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
         <option disabled selected>Appearance</option>
-        <option value="ocean">Dark-Mode</option>
-        <option value="candy">Bright-Mode</option>
+        <option value="darkmode">Dark-Mode</option>
+        <option value="brightmode">Bright-Mode</option>
       </select>
+
+      <br>
+      <select #fontweight (change)="fontSize(fontweight.value);" name="font_weight" style="margin-left: 17px; margin-top: 10px; border-radius: 10px; background-color: #939393">
+        <option disabled selected>Font-Size</option>
+        <option value="17">17</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="28">28</option>
+      </select>
+
+      <div style="display: flex; justify-content: center; margin-top: 10px">
+        <div style="height: 4px; width: 90%; background-color: #525252; border-radius: 4px"></div>
+      </div>
+
+      <button class="report-button" (click)="reportError()">help</button>
+
+
+      <button class="logout-button" (click)="logout()">logout</button>
+
 
 
     </div>

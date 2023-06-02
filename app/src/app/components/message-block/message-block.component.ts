@@ -14,6 +14,7 @@ import {HeaderComponent} from "../header/header.component";
 import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
 import {parseJson} from "@angular/cli/src/utilities/json-file";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'message-block',
@@ -24,61 +25,46 @@ import {parseJson} from "@angular/cli/src/utilities/json-file";
       state('void', style({transform: 'translateX(-100%)', opacity: 0})),
       state('*', style({transform: 'translateX(0)', opacity: 1})),
       transition(':enter', animate('250ms ease-out')),
-    ]),
-
-    trigger('drop', [
+    ]), trigger('drop', [
       state('void', style({transform: 'translateY(-100%)', opacity: 0})),
       state('*', style({transform: 'translateY(0)', opacity: 1})),
       transition(':enter', animate('250ms ease-out')),
       transition(':leave', animate('400ms ease-in'))
     ])
-
   ]
-
-
 })
 export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChildren('testDiv') testDivs!: QueryList<ElementRef>;
+  @ViewChildren('messageBlock') messageBlock!: QueryList<ElementRef>;
+  @ViewChildren('textArea') textArea!: QueryList<ElementRef>;
 
 
   public list: string[] = ["box"];
   public textList: string[] = [];
   public counter: number = 1;
   public myVariable: string = "";
-  private myVariableSubscription: Subscription;
   public colorTheme: string = "";
   public x: string = "";
 
-  constructor(private dataService: DataService) {
-    this.myVariableSubscription = this.dataService.getVariable().subscribe((value: string) => {
-      this.myVariable = value;
-    });
+  constructor(private dataService: DataService, private router: Router) {
 
-    this.colorTheme = localStorage.getItem("colorTheme") || '{}';
 
   }
 
   ngOnDestroy() {
-    this.myVariableSubscription.unsubscribe();
   }
 
-
   addBox() {
+    this.dataService.checkCookie("login")
     this.changeDivBackground();
 
-    var currentdate = new Date();
-    var datetime = currentdate.getDate() + "."
-      + (currentdate.getMonth() + 1) + "."
-      + currentdate.getFullYear() + " | "
-      + currentdate.getHours() + ":"
-      + currentdate.getMinutes();
 
     let textAreaElement: HTMLInputElement | null = document.getElementById('text-block',) as HTMLInputElement | null;
     let textFromTextArea = textAreaElement?.value.toString();
 
 
     this.counter = this.counter + 1;
+    localStorage.setItem("boxes-amount", this.counter.toString());
     this.list.push("box");
 
     if (typeof textFromTextArea === "string") {
@@ -97,18 +83,18 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
   public isOnMobile: boolean = false;
   public maxHeight: boolean = false;
 
-  checkIfMobile() {
-    let regexp = /android|iphone|kindle|ipad/i;
-    this.isOnMobile = regexp.test(navigator.userAgent);
-    console.log("user agent: " + this.isOnMobile);
-  }
+  // checkIfMobile() {
+  //   let regexp = /android|iphone|kindle|ipad/i;
+  //   this.isOnMobile = regexp.test(navigator.userAgent);
+  //   console.log("user agent: " + this.isOnMobile);
+  // }
 
   ngOnInit() {
+    this.dataService.checkCookie("login");
 
     this.list = JSON.parse(localStorage.getItem("message-block-key") || '{}');
 
-
-    this.checkIfMobile();
+    // this.checkIfMobile();
     if (window.innerWidth <= 600) {
       this.maxHeight = true;
     } else {
@@ -116,33 +102,55 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-
   ngAfterViewInit() {
+    this.dataService.checkCookie("login");
     this.changeDivBackground();
+    this.changeFontSize()
+
+  }
+
+  changeFontSize() {
+    this.dataService.checkCookie("login");
+
+    let fontSize = localStorage.getItem("font-size")
+    console.log(fontSize);
+    this.textArea.forEach(div => {
+      div.nativeElement.style.fontSize = fontSize + "px";
+    });
   }
 
   changeDivBackground() {
+    this.dataService.checkCookie("login");
 
     let colorTheme = localStorage.getItem("colorTheme")
     console.log(colorTheme)
 
     let colorAlias = "white"
     if (colorTheme == "ocean") {
-      colorAlias = "cyan"
-    }if (colorTheme == "candy") {
-      colorAlias = "pink"
-    }if (colorTheme == "moonlight") {
-      colorAlias = "lightyellow"}
+      colorAlias = "#29c9b2"
+    }
+    if (colorTheme == "candy") {
+      colorAlias = "#b64796"
+    }
+    if (colorTheme == "moonlight") {
+      colorAlias = "#FFF59D"
+    }
     if (colorTheme == "skyline") {
-      colorAlias = "royalblue"
-    }if (colorTheme == "midnight") {
-      colorAlias = "darkblue"
+      colorAlias = "#3e83cb"
+      this.textArea.forEach(div => {
+        div.nativeElement.style.color = "white";
+      });
+    }
+    if (colorTheme == "midnight") {
+      colorAlias = "#29384d"
+      this.textArea.forEach(div => {
+        div.nativeElement.style.color = "white";
+      });
     }
 
-    this.testDivs.forEach(div => {
+    this.messageBlock.forEach(div => {
       div.nativeElement.style.backgroundColor = colorAlias;
     });
-
   }
 
 }

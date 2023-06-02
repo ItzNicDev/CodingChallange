@@ -9,14 +9,14 @@
 <ng-container *ngFor="let index of list" style="">
 
   <ng-container *ngIf="maxHeight">
-    <div @drop id="test1" class="text-block" #testDiv>
-      <textarea class="text" id="text-block"></textarea>
+    <div @drop id="test1" class="text-block" #messageBlock>
+      <textarea class="text" #textArea></textarea>
     </div>
   </ng-container>
 
   <ng-container *ngIf="!maxHeight">
-    <div @slide id="test" class="text-block" #testDiv>
-      <textarea class="text" id="text-blockk"></textarea>
+    <div @slide id="test" class="text-block" #messageBlock>
+      <textarea class="text" #textArea></textarea>
     </div>
   </ng-container>
 
