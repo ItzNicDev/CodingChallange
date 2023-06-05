@@ -10,13 +10,13 @@
 
   <ng-container *ngIf="maxHeight">
     <div @drop id="test1" class="text-block" #messageBlock>
-      <textarea class="text" #textArea></textarea>
+      <textarea class="text" #textArea (change)="editBowValue(textArea.value, 0)">{{index}}</textarea>
     </div>
   </ng-container>
 
   <ng-container *ngIf="!maxHeight">
     <div @slide id="test" class="text-block" #messageBlock>
-      <textarea class="text" #textArea></textarea>
+      <textarea class="text" #textArea (change)="editBowValue(textArea.value, 0);">{{index}}</textarea>
     </div>
   </ng-container>
 

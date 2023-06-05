@@ -15,6 +15,7 @@ import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
 import {parseJson} from "@angular/cli/src/utilities/json-file";
 import {Router} from "@angular/router";
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'message-block',
@@ -45,6 +46,7 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
   public myVariable: string = "";
   public colorTheme: string = "";
   public x: string = "";
+  public firstVisit: boolean = false;
 
   constructor(private dataService: DataService, private router: Router) {
 
@@ -54,9 +56,17 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy() {
   }
 
+  editBowValue(value: string, index: number) {
+
+
+    index = 0;
+    this.list[index] = value;
+
+    localStorage.setItem("message-block-key", JSON.stringify(this.list))
+  }
+
   addBox() {
     this.dataService.checkCookie("login")
-    this.changeDivBackground();
 
 
     let textAreaElement: HTMLInputElement | null = document.getElementById('text-block',) as HTMLInputElement | null;
@@ -67,12 +77,16 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
     localStorage.setItem("boxes-amount", this.counter.toString());
     this.list.push("box");
 
-    if (typeof textFromTextArea === "string") {
-      this.textList.push(textFromTextArea);
-    }
+    // if (typeof textFromTextArea === "string") {
+    //   this.textList.push(textFromTextArea);
+    // }
 
     console.log(this.list)
     localStorage.setItem("message-block-key", JSON.stringify(this.list));
+
+
+    this.changeDivBackground();
+
   }
 
   deleteBoxes() {
@@ -90,6 +104,8 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
   // }
 
   ngOnInit() {
+
+
     this.dataService.checkCookie("login");
 
     this.list = JSON.parse(localStorage.getItem("message-block-key") || '{}');
@@ -100,13 +116,24 @@ export class MessageBlockComponent implements OnInit, OnDestroy, AfterViewInit {
     } else {
       this.maxHeight = false;
     }
+
+
+    if (localStorage.getItem('colorTheme') == null) {
+      this.firstVisit = true;
+      localStorage.setItem("colorTheme", "ocean")
+
+      alert("This is where the journey begins");
+      alert("Press the 3 stripes in the corner to access the settings");
+      alert("Press the garbage can to delete all notes");
+    }
+    this.changeDivBackground();
+
   }
 
   ngAfterViewInit() {
     this.dataService.checkCookie("login");
     this.changeDivBackground();
     this.changeFontSize()
-
   }
 
   changeFontSize() {

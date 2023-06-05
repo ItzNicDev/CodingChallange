@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from "@angular/router";
+import * as CryptoJS from 'crypto-js';
 
 @Injectable({
   providedIn: 'root',
@@ -59,8 +59,7 @@ export class DataService {
       if (cookie.startsWith(name + '=')) {
         // Extract and return the cookie value
         return cookie.substring(name.length + 1);
-      }
-      else {
+      } else {
         return undefined
       }
     }
@@ -71,6 +70,22 @@ export class DataService {
 
     let value = this.getCookieValue(name);
     document.cookie = name + "=" + value + ";" + "expires=Thu, 01 Jan 1970 00:00:01 GMT" + ";path=/";
+  }
+
+  test(){
+    return "test";
+  }
+
+  encrypt(clearText: string, key: string) {
+    // return CryptoJS.AES.encrypt(clearTexxst, key).toString();
+    const encryptedString = CryptoJS.AES.encrypt(clearText, key).toString();
+    return encryptedString;
+    // console.log(CryptoJS.AES.encrypt(clearText, key).toString());
+  }
+
+  decrypt(enryptedText: string, key:string) {
+    const decryptedBytes = CryptoJS.AES.decrypt(enryptedText, key);
+    return decryptedBytes.toString(CryptoJS.enc.Utf8);
   }
 
 

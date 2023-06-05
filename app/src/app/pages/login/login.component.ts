@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home']);
 
     }
-    localStorage.setItem("message-block-key", JSON.stringify(["box"]));
+    localStorage.setItem("message-block-key", JSON.stringify([""]));
   }
 
   handleKey(event: any, username: string, password: string) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -17,6 +17,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
+
+  ngOnInit() {
+
+  }
 }

@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
 
   appearanceSelection(value: string) {
     localStorage.setItem("appearance", value)
+    location.reload();
   }
 
   fontSize(value: string) {
@@ -71,4 +72,5 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["report"]);
   }
 
+  protected readonly localStorage = localStorage;
 }
