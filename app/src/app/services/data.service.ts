@@ -9,8 +9,19 @@ export class DataService {
 
   readonly usernameToCheck: string = "user";
 
+  private variable: any;
+
   constructor(private router: Router) {
   }
+
+  setValue(value: any) {
+    value = this.variable;
+  }
+
+  getValue(value: any) {
+    return this.variable;
+  }
+
 
   checkCookie(redirectRoute: string) {
     const cookies = document.cookie.split(";");
@@ -72,7 +83,7 @@ export class DataService {
     document.cookie = name + "=" + value + ";" + "expires=Thu, 01 Jan 1970 00:00:01 GMT" + ";path=/";
   }
 
-  test(){
+  test() {
     return "test";
   }
 
@@ -83,7 +94,7 @@ export class DataService {
     // console.log(CryptoJS.AES.encrypt(clearText, key).toString());
   }
 
-  decrypt(enryptedText: string, key:string) {
+  decrypt(enryptedText: string, key: string) {
     const decryptedBytes = CryptoJS.AES.decrypt(enryptedText, key);
     return decryptedBytes.toString(CryptoJS.enc.Utf8);
   }

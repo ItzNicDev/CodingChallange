@@ -1,0 +1,17 @@
+.break-line {
+  height: 2px;
+  width: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: #939393;
+  display: flex;
+  justify-content: center
+}
+
+.header {
+  font-size: 40px;
+  color: white;
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 15px;
+}

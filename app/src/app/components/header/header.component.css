@@ -5,9 +5,10 @@
   position: relative;
   height: 35px;
   border: none;
-  align-items: center;
-  align-content: center;
-  align-self: center;
+  padding: 5px;
+  /*align-items: center;*/
+  /*align-content: center;*/
+  /*align-self: center;*/
   background-color: gray;
   border-radius: 10px;
   color: white;
@@ -35,6 +36,14 @@
   margin-top: 15px;
 }
 
+
+.header-brightmode {
+  font-size: 40px;
+  color: #000000;
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 15px;
+}
 
 .menu-icon {
   display: inline-block;

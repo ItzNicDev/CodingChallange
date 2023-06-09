@@ -1,0 +1,25 @@
+<h1 class="header">Lab</h1>
+<span><img style="height: 40px; position: relative; top: -10px" src="/assets/icons/lab_icon.png"></span>
+
+<div style="display: flex; justify-content: center">
+  <div class="break-line" style="">
+  </div>
+</div>
+
+
+<!--<input [(ngModel)]="text" (keyup)="onKey($event)">-->
+<!--<textarea #input (keyup)="onKey(input.value, 0)" name="input"></textarea>-->
+<!--<textarea #test (keyup)="onKey(test.value, 1)" name="input"></textarea>-->
+
+<!--<p style="color: white">{{text}}</p>-->
+
+<button (click)="addList()">+</button>
+
+<ng-container *ngFor="let index of amount">
+  <textarea #input (keyup)="onKey(input.value, index)" name="input"></textarea>
+</ng-container>
+
+
+<p style="color: white;">{{localStorage.getItem("[test] list")}}</p>
+
+

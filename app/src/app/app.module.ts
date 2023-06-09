@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReportComponent } from './pages/report/report.component';
 import {FormsModule} from "@angular/forms";
+import { TestComponent} from "./pages/test/test.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    ReportComponent
+    ReportComponent,
+    TestComponent
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule],
   providers: [DataService],

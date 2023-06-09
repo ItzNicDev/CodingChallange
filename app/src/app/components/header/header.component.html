@@ -1,4 +1,5 @@
-<h1 class="header">NoteStack</h1>
+<h1 *ngIf="localStorage.getItem('appearance') == 'darkmode'" class="header">NoteStack</h1>
+<h1 *ngIf="localStorage.getItem('appearance') == 'brightmode'" class="header-brightmode">NoteStack</h1>
 
 
 <div class="menu-icon">

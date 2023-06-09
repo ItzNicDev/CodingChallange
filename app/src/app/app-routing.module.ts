@@ -6,12 +6,14 @@ import {MessageBlockComponent} from "./components/message-block/message-block.co
 import {HomeComponent} from "./pages/home/home.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {ReportComponent} from "./pages/report/report.component";
+import {TestComponent} from "./pages/test/test.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'report', component: ReportComponent}
+  {path: 'report', component: ReportComponent},
+  {path: 'test', component : TestComponent}
 ];
 
 @NgModule({
